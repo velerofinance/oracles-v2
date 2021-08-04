@@ -46,7 +46,7 @@ after() {
 . "$_path/../lib/tap.sh"
 
 plan 33
-timeout 120
+timeout 60
 
 note <<<"INSTALL FEED"
 

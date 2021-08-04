@@ -1,13 +1,17 @@
-{ stdenv, makeWrapper, runCommand, lib, glibcLocales, coreutils, bash, parallel, bc, jq, gnused, datamash, gnugrep, ssb-server
-, ethsign, seth, setzer-mcd, stark-cli, oracle-suite, curl }:
+{ stdenv, makeWrapper, runCommand, lib, glibcLocales
+, coreutils, bash, parallel, bc, jq, gnused, datamash, gnugrep
+, ssb-server, ethsign, seth, setzer-mcd, stark-cli, oracle-suite }:
 
 let
   inherit (builtins) pathExists;
   tapsh = if (pathExists ./tap.sh) then ./tap.sh else ../tests/lib/tap.sh;
-  deps =
-    [ coreutils bash parallel bc jq gnused datamash gnugrep ssb-server ethsign seth setzer-mcd stark-cli oracle-suite curl ];
+  deps = [
+    coreutils bash parallel bc jq gnused datamash gnugrep
+    ssb-server ethsign seth setzer-mcd stark-cli oracle-suite
+  ];
+in
 
-in stdenv.mkDerivation rec {
+stdenv.mkDerivation rec {
   name = "omnia-${version}";
   version = lib.fileContents ./lib/version;
   src = ./.;
@@ -30,18 +34,13 @@ in stdenv.mkDerivation rec {
 
   installPhase = let
     path = lib.makeBinPath passthru.runtimeDeps;
-    locales = lib.optionalString (glibcLocales != null) ''--set LOCALE_ARCHIVE "${glibcLocales}"/lib/locale/locale-archive'';
+    locales = lib.optionalString (glibcLocales != null)
+      "--set LOCALE_ARCHIVE \"${glibcLocales}\"/lib/locale/locale-archive";
   in ''
     mkdir -p $out
-
     cp -r ./lib $out/lib
-    chmod +x $out/lib/omnia.sh
-
     cp -r ./bin $out/bin
-    chmod +x $out/bin/*
-
     cp -r ./config $out/config
-
     find $out/bin -type f | while read -r x; do
       wrapProgram "$x" \
         --prefix PATH : "$out/bin:${path}" \
@@ -49,9 +48,10 @@ in stdenv.mkDerivation rec {
     done
   '';
 
+
   meta = with lib; {
     description = "Omnia is a smart contract oracle client";
-    homepage = "https://github.com/makerdao/oracles-v2";
+    homepage = https://github.com/makerdao/oracles-v2;
     license = licenses.gpl3;
     inherit version;
   };

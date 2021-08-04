@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if command -v ssb-server; then
 	# ssb-server is in PATH, do nothing
 	true
