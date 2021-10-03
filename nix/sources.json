@@ -27,12 +27,12 @@
         "branch": "master",
         "description": "Common nixpkgs",
         "homepage": "",
-        "owner": "makerdao",
+        "owner": "velerofinance",
         "repo": "makerpkgs",
         "rev": "76151418a2d9ffcfa55dec8acda5bde10f504224",
         "sha256": "0vknhf3n54v6rgvq23rhi3b3lraczn9yzd7cw8i1hdxkb028f34r",
         "type": "tarball",
-        "url": "https://github.com/makerdao/makerpkgs/archive/76151418a2d9ffcfa55dec8acda5bde10f504224.tar.gz",
+        "url": "https://github.com/velerofinance/makerpkgs/archive/76151418a2d9ffcfa55dec8acda5bde10f504224.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -87,12 +87,12 @@
         "branch": "master",
         "description": null,
         "homepage": "",
-        "owner": "makerdao",
+        "owner": "velerofinance",
         "repo": "setzer-mcd",
-        "rev": "6d41613d5974cf0906806c806c727fa2062cab7b",
-        "sha256": "045yb66bjs4ijg39pvgx4sd9ryflfk75l4dlpd088xdv12dc2hlx",
+        "rev": "b520b96a7db609bbf4164ca316c9380d9c3ea35c",
+        "sha256": "7df04fa7366c92b87bb632dcae4eeaa38849ff702a9ad8dde7ee91b4b403bab1",
         "type": "tarball",
-        "url": "https://github.com/makerdao/setzer-mcd/archive/6d41613d5974cf0906806c806c727fa2062cab7b.tar.gz",
+        "url": "https://github.com/velerofinance/setzer-mcd/archive/6d41613d5974cf0906806c806c727fa2062cab7b.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
